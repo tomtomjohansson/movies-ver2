@@ -2,4 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  form(method="POST" action="/moviepost")
+     input(type="text" name="title" id="title" required)
+     input(type="submit" value="Lägg till film")
+   
+   .content
+      each val in movies.movies
+         p= val.title
+         hr

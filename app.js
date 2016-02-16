@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var fs = require('fs');
 var routes = require('./routes/index');
 var list = require('./routes/list');
 var movies = require('./routes/movies');
@@ -19,7 +19,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -27,9 +27,33 @@ app.use('/', routes);
 app.use('/list', list);
 app.use('/movies', movies);
 
+app.locals.arr = [];
 
 // New Code here
+app.post('/moviepost',(req,res,next)=>{
+   console.log(req.body);
+   fs.appendFile('movies.txt',","+JSON.stringify(req.body),function(error){
+      if(error){
+         return console.log(error);
+      }
+   });
+   res.writeHead(302,{'Location':'/'});
+   res.end();
+});
 
+// app.get('/',function(req,res){
+//    var fileReadStream = fs.createReadStream('movies.txt');
+//    var json = "";
+//    var data = "";
+//    fileReadStream.on('data', (text) => {
+//       data += '{"movies":[';
+//       data += text;
+//       data += ']}';
+//       json = JSON.parse(data);
+//       writeOnPage(json);
+//    });
+//    res.end(json);
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
