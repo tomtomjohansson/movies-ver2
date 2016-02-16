@@ -27,8 +27,6 @@ app.use('/', routes);
 app.use('/list', list);
 app.use('/movies', movies);
 
-app.locals.arr = [];
-
 // New Code here
 app.post('/moviepost',(req,res,next)=>{
    console.log(req.body);
@@ -40,20 +38,6 @@ app.post('/moviepost',(req,res,next)=>{
    res.writeHead(302,{'Location':'/'});
    res.end();
 });
-
-// app.get('/',function(req,res){
-//    var fileReadStream = fs.createReadStream('movies.txt');
-//    var json = "";
-//    var data = "";
-//    fileReadStream.on('data', (text) => {
-//       data += '{"movies":[';
-//       data += text;
-//       data += ']}';
-//       json = JSON.parse(data);
-//       writeOnPage(json);
-//    });
-//    res.end(json);
-// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
