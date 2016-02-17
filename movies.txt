@@ -1,2 +1,1 @@
-{"title":"tomas"}
-,{"title":"asdfasdf"}
+{"title":"kalle","year":"hej","desc":"hej","regi":"hej","length":"hej"},{"title":"Die Hard","year":"1399","desc":"sldkjfsldkfj","regi":"sldkfjsdlfkj","length":"sldkjfslkdjf"}
