@@ -27,15 +27,16 @@ app.use('/', routes);
 app.use('/list', list);
 app.use('/movies', movies);
 
+
 // New Code here
-app.post('/moviepost',(req,res,next)=>{
+app.post('/moviepost', function(req,res,next) {
    console.log(req.body);
-   fs.appendFile('movies.txt',","+JSON.stringify(req.body),function(error){
+   fs.appendFile('movies.txt',"," + JSON.stringify(req.body),function(error) {
       if(error){
          return console.log(error);
       }
    });
-   res.writeHead(302,{'Location':'/'});
+   res.writeHead(302,{'Location':'/list'});
    res.end();
 });
 
