@@ -3,9 +3,11 @@ var router = express.Router();
 var fs = require('fs');
 
 router.get('/', function(req, res, next) {
+   
    var data = "";
    var json="";
    var fileReadStream = fs.createReadStream('movies.txt');
+   
    fileReadStream.on('data', (text) => {
       data += '{"movies":[';
       data += text;
@@ -13,6 +15,7 @@ router.get('/', function(req, res, next) {
       json = JSON.parse(data);
       writeOnPage(json)
    });
+   
    function writeOnPage(data){
       res.render('list', {
          title: 'List movies',
