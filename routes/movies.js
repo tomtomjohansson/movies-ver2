@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
       data += text;
       data += ']}';
       json = JSON.parse(data);
-      writeOnPage(json)
+      writeOnPage(json);
    });
    function writeOnPage(data){
 
