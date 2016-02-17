@@ -4,7 +4,7 @@ var fs = require('fs');
 
 router.get('/', function(req, res, next) {
    res.render('index', {
-      title: 'Add movies',
+      title: 'Add movies'
    });
 });
 

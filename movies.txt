@@ -1,3 +1,1 @@
-{"title":"Sällskapsresan","year":"1983","desc":"Go film.","direct":"Lasse Åberg","length":"233 min"}
-,{"title":"Braveheart","year":"1995","desc":"Goa skottar.","direct":"Mel Gibson","length":"200 min"},{"title":"Top Gun","year":"1985","desc":"Pang pang","direct":"sldkjf","length":"120 min"}
-,{"title":"h","year":"j","desc":"k","direct":"l","length":"ö"},{"title":"asdf","year":"alsdkfj","desc":"sldkfjq","direct":"alskdj","length":"asdlkf"}
+{"title":"kalle","year":"hej","desc":"hej","regi":"hej","length":"hej"},{"title":"Die Hard","year":"1399","desc":"sldkjfsldkfj","regi":"sldkfjsdlfkj","length":"sldkjfslkdjf"}

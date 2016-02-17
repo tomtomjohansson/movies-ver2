@@ -14,18 +14,27 @@ router.get('/', function(req, res, next) {
       writeOnPage(json);
    });
    function writeOnPage(data){
-      console.log(data.movies[0]);
+
+      console.log(req.method);
+      console.log(req.url);
+      console.log(req.query);
+
       var id = 0;
-      if(req.query.id >0 && req.query.id < data.movies.length){
+
+      if (req.query.id > 0 && req.query.id < data.movies.length) {
+
          id = req.query.id;
+
       }
-      else{
+
+      else {
+
          id = 0;
+
       }
-      console.log("Id is "+id);
-      console.log("length: "+data.movies.length);
+
       res.render('movies', {
-         title: 'View movie',
+         title: 'Movie',
          movie: data.movies[id]
       });
    }
