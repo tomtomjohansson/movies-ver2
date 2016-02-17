@@ -35,7 +35,7 @@ app.post('/moviepost',(req,res,next)=>{
          return console.log(error);
       }
    });
-   res.writeHead(302,{'Location':'/'});
+   res.writeHead(302,{'Location':'/list'});
    res.end();
 });
 

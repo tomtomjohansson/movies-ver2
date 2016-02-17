@@ -2,11 +2,16 @@ extends layout
 
 block content
   h1= title
+  include ./includes/header.jade
   form(method="POST" action="/moviepost")
+     label(for="title") Titel: 
      input(type="text" name="title" id="title" required)
+     label(for="year") Årtal:
+     input(type="text" name="year" id="year" required)
+     label(for="desc") Beskrivning:
+     textarea(name="desc" id="desc" required)
+     label(for="direct") Regissör:
+     input(type="text" name="direct" id="direct" required)
+     label(for="length") Längd:
+     input(type="text" name="length" id="length" required)
      input(type="submit" value="Lägg till film")
-   
-   .content
-      each val in movies.movies
-         p= val.title
-         hr
