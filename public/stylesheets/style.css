@@ -12,3 +12,9 @@ input,textarea{
    display: block;
    margin-bottom: 8px;
 }
+
+p {
+
+	width: 300px;
+
+}
