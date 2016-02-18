@@ -29,6 +29,9 @@ app.use('/movies', movies);
 
 
 // New Code here
+// Post for form on route:'/'
+// Appends the request body to our database-file.
+// Redirects to '/list'
 app.post('/moviepost', function(req,res,next) {
    console.log(req.body);
    fs.appendFile('movies.txt',"," + JSON.stringify(req.body),function(error) {
