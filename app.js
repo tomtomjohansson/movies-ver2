@@ -38,6 +38,7 @@ app.post('/moviepost', function(req,res,next) {
    });
    res.writeHead(302,{'Location':'/list'});
    res.end();
+   
 });
 
 // catch 404 and forward to error handler

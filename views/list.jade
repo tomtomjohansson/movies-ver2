@@ -1,8 +1,12 @@
 extends layout
 block content
-   h1= title
-   .content
-      each val,index in movies.movies
-         p
-            a(href="/movies?id=#{index}")= val.title
-         hr
+
+	.content
+
+		h1= title
+
+		each val,index in movies.movies
+
+			p
+				a(href="/movies?id=#{index}")= val.title
+			hr
