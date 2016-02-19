@@ -1,31 +1,44 @@
 extends layout
 
 block content
-   h1= title
-   //- Form for posting new movies. Passes it to '/moviepost' - information is collected in file app.js
-   form(method="POST" action="/moviepost")
-      label(for="title") Titel
-      br
-      input(type="text" name="title" id="title" required)
-      br
-      label(for="year") Year
-      br
-      input(type="text" name="year" id="year" required)
-      br
-      label(for="desc") Description
-      br
-      textarea(name="desc" id="desc" required)
-      br
-      label(for="regi") Regi
-      br
-      input(type="text" name="regi" id="regi" required)
-      br
-      label(for="length") Length of movie
-      br
-      input(type="text" name="length" id="length" required)
-      br
-      label(for="imgUrl") Image URL
-      br
-      input(type="text" name="imgUrl" id="imgUrl" required)
-      br
-      input(type="submit" value="Lägg till film")
+	h1= title
+		
+	form(method="POST" action="/moviepost")
+		table
+			tr
+				td
+					label(for="title") Titel
+					br
+					input(type="text" name="title" id="title" required)
+					br
+				td
+					label(for="year") Year
+					br
+					input(type="text" name="year" id="year" required)
+					br
+			tr
+				td
+					label(for="regi") Regi
+					br
+					input(type="text" name="regi" id="regi" required)
+					br
+				td
+					label(for="length") Length of movie
+					br
+					input(type="text" name="length" id="length" required)
+					br
+		table
+			tr
+				td
+					label(for="desc") Description
+					br
+					textarea(name="desc" id="desc" required)
+					br
+			tr
+				td
+					label(for="imgUrl") Image URL
+					br
+					input(type="text" name="imgUrl" id="imgUrl" required)
+			tr
+				td
+					input(type="submit" value="Lägg till film")

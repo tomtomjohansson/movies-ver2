@@ -4,7 +4,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
   margin-right: 5px;
 }
 
@@ -16,5 +16,82 @@ input,textarea{
 p {
 
 	width: 300px;
+
+}
+
+form {
+
+	font-family: 'Maven Pro', sans-serif;	
+
+}
+
+form textarea {
+
+	width: 415px;
+	height: 100px;
+	margin-top: 5px;
+	padding: 10px;
+	text-decoration: none;
+	background: url() repeat-x;
+	border: 2px solid black;
+	border-radius: 10px;
+	font-size: 15px;
+	color: black;
+
+}
+
+form textarea:focus {
+
+	border: 2px solid white;
+	background-color: white;
+	color: black;
+
+}
+
+form input[type="submit"] {
+
+    border: 2px solid black;
+    margin: 5px;
+    text-decoration: none;
+	font-family: 'Maven Pro', sans-serif;	
+    color: black;
+    background:url() repeat-x;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 130px;
+    font-size: 15px;
+    border-radius: 5px;
+
+}
+
+form input[type="text"] {
+
+	border: 2px solid black;
+	margin: 5px;
+    text-decoration: none;
+	font-family: 'Maven Pro', sans-serif;	
+    color: black;
+    background:url() repeat-x;
+    padding-left: 5px;
+    width: 200px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 2px;
+
+}
+
+form input[type="text"]:focus {
+
+	border: 1px solid white;
+    text-decoration: none;
+	font-family: 'Maven Pro', sans-serif;	
+    color: black;
+    background-color: white;
+    padding-left: 5px;
+    width: 280px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
 
 }
