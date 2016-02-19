@@ -5,11 +5,9 @@ var fs = require('fs');
 function getStream(callback){
    var data = "";
    var json="";
-   var fileReadStream = fs.createReadStream('movies.txt');
+   var fileReadStream = fs.createReadStream('filmer.json');
    fileReadStream.on('data', (text) => {
-      data += '{"movies":[';
       data += text;
-      data += ']}';
       json = JSON.parse(data);
       callback(json);
    });

@@ -8,6 +8,7 @@ var fs = require('fs');
 var routes = require('./routes/index');
 var list = require('./routes/list');
 var movies = require('./routes/movies');
+var stream = require('./routes/stream');
 
 var app = express();
 
@@ -30,18 +31,24 @@ app.use('/movies', movies);
 
 // New Code here
 // Post for form on route:'/'
-// Appends the request body to our database-file.
+// Pushes the request body to our movie array. Overwrites object in JSON-file.
 // Redirects to '/list'
 app.post('/moviepost', function(req,res,next) {
    console.log(req.body);
-   fs.appendFile('movies.txt',"," + JSON.stringify(req.body),function(error) {
-      if(error){
-         return console.log(error);
-      }
-   });
+   var newMovie = req.body;
+   stream.getStream(overWrite);
+   function overWrite(data){
+      var arr = data.movies;
+      arr.push(newMovie);
+      fs.writeFile('filmer.json', JSON.stringify(data),function(error){
+         if(error){
+            return console.log(error);
+         }
+      });
+   }
    res.writeHead(302,{'Location':'/list'});
    res.end();
-   
+
 });
 
 // catch 404 and forward to error handler
