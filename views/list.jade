@@ -1,12 +1,9 @@
 extends layout
 block content
-
-	.content
-
-		h1= title
-
-		each val,index in movies.movies
-
-			p
-				a(href="/movies?id=#{index}")= val.title
-			hr
+   h1= title
+   .content
+      //- Loops through array with all movies. Passes the index of every movie as a querystring in the a-tags.
+      each val,index in movies.movies
+         p
+            a(href="/movies?id=#{index}")= val.title
+         hr
