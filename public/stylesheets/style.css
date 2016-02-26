@@ -3,14 +3,24 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+header a{
+   font-size:16px;
+   text-transform: uppercase;
+}
+
 a {
   color: black;
-  margin-right: 5px;
+  margin-right: 9px;
 }
 
 input,textarea{
    display: block;
    margin-bottom: 8px;
+}
+
+.delete{
+   color: red;
+   margin-left: 20px;
 }
 
 p {
@@ -21,7 +31,7 @@ p {
 
 form {
 
-	font-family: 'Maven Pro', sans-serif;	
+	font-family: 'Maven Pro', sans-serif;
 
 }
 
@@ -53,7 +63,7 @@ form input[type="submit"] {
     border: 2px solid black;
     margin: 5px;
     text-decoration: none;
-	font-family: 'Maven Pro', sans-serif;	
+	font-family: 'Maven Pro', sans-serif;
     color: black;
     background:url() repeat-x;
     padding: 10px;
@@ -70,7 +80,7 @@ form input[type="text"] {
 	border: 2px solid black;
 	margin: 5px;
     text-decoration: none;
-	font-family: 'Maven Pro', sans-serif;	
+	font-family: 'Maven Pro', sans-serif;
     color: black;
     background:url() repeat-x;
     padding-left: 5px;
@@ -85,7 +95,7 @@ form input[type="text"]:focus {
 
 	border: 1px solid white;
     text-decoration: none;
-	font-family: 'Maven Pro', sans-serif;	
+	font-family: 'Maven Pro', sans-serif;
     color: black;
     background-color: white;
     padding-left: 5px;

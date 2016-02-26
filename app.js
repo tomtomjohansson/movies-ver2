@@ -39,6 +39,7 @@ app.post('/moviepost', function(req,res,next) {
    stream.getStream(overWrite);
    function overWrite(data){
       var arr = data.movies;
+      newMovie.id = arr[arr.length-1].id + 1;
       arr.push(newMovie);
       fs.writeFile('filmer.json', JSON.stringify(data),function(error){
          if(error){
@@ -47,8 +48,28 @@ app.post('/moviepost', function(req,res,next) {
       });
    }
    res.writeHead(302,{'Location':'/list'});
+   // res.redirect('/list');
    res.end();
+});
 
+// Delete movie. Gets id from query-string. Collects json-object from stream.js. Lopps through array of movies and returns the index of the movie with the same id as the one in the query-string. Uses that index to splice in the array. Writes new JSON-object to filmer.json. Then redirects back to /list.
+app.get('/delete', function(req,res,next) {
+   var getId = req.query.id;
+   stream.getStream(deleteMovie);
+   function deleteMovie(data){
+      var arr = data.movies;
+      var remove = arr.findIndex(function(x){
+         return x.id == getId;
+      });
+      arr.splice(remove,1);
+      fs.writeFile('filmer.json', JSON.stringify(data),function(error){
+         if(error){
+            return console.log(error);
+         }
+      });
+   }
+   res.writeHead(302,{'Location':'/list'});
+   res.end();
 });
 
 // catch 404 and forward to error handler

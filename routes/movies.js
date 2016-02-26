@@ -9,18 +9,25 @@ router.get('/', function(req, res, next) {
    stream.getStream(writeOnPage);
    // Function to render to jade-page. Passes a JSON-object as a parameter.
    function writeOnPage(data){
-      var id = 0;
-      // Collects querystring passed on from list.jade and passes it to the id-variable. Req.query.id equals the index of the movie to be shown. Defaults to zero if no query-string exists. Also defaults to zero if id in query-string is higher than the maximum-value of the movie-array.
-      if (req.query.id > 0 && req.query.id < data.movies.length) {
-         id = req.query.id;
+      // Collects querystring passed on from list.jade and passes it to the id-variable. Req.query.id equals the id of the movie to be shown. Defaults to zero if no query-string
+      var id = req.query.id;
+      var arr = data.movies;
+      var showMovie = "";
+      // If id has a value filter through array of movies and pick out the one with matchin id.
+      if (id>=0){
+         showMovie = arr.filter(function(movies){
+            console.log("Looping "+movies.id+" and id is "+id);
+            return movies.id == id;
+         });
       }
-      else {
-         id = 0;
+      // If no query-string exists, set showMovie to entire array. Defaults to first in array in the rendering fase.
+      else if (typeof id === 'undefined') {
+            showMovie = arr;
       }
-      // movie value points to specified movie from array with help from the id-variable.
+      console.log(showMovie);
       res.render('movies', {
          title: 'Movie',
-         movie: data.movies[id]
+         movie: showMovie[0]
       });
    }
 });

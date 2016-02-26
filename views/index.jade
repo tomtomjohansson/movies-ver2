@@ -2,7 +2,6 @@ extends layout
 
 block content
 	h1= title
-		
 	form(method="POST" action="/moviepost")
 		table
 			tr
@@ -27,6 +26,16 @@ block content
 					br
 					input(type="text" name="length" id="length" required)
 					br
+		p Drama:
+			input(type="checkbox" name="genre" value="drama" checked)
+		p Action:
+			input(type="checkbox" name="genre" value="action")
+		p War:
+			input(type="checkbox" name="genre" value="war")
+		p Comedy:
+			input(type="checkbox" name="genre" value="comedy")
+		p Western:
+			input(type="checkbox" name="genre" value="western")
 		table
 			tr
 				td

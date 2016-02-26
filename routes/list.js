@@ -9,9 +9,29 @@ router.get('/', function(req, res, next) {
    stream.getStream(writeOnPage);
    // Function to render to jade-page. Passes a JSON-object as a parameter.
    function writeOnPage(data){
+      // Picks out selected genre from query-string and assigns it to variable genre.
+      var genre = req.query.genre;
+      var movies = data.movies;
+      // Filter through all movies. If genre is true (i.e. a query-string exists) return the movies where the genre from the query-string has an index in the genre-array (or genre-string if only one). If typeof genre is undefined return all movies.
+      var filtered = movies.filter(function(x){
+         if (genre){
+            return x.genre.indexOf(genre) >= 0;
+         }
+         else{
+            return x;
+         }
+      });
+      var numberOfMovies = "";
+      if(genre){
+         numberOfMovies = "There are "+filtered.length+" movies in this genre."
+      }
+      else{
+         numberOfMovies = "There are "+filtered.length+" movies total."
+      }
       res.render('list', {
          title: 'List movies',
-         movies: data
+         movies: filtered,
+         numMovies: numberOfMovies
       });
    }
 });

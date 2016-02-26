@@ -2,8 +2,16 @@ extends layout
 block content
    h1= title
    .content
-      //- Loops through array with all movies. Passes the index of every movie as a querystring in the a-tags.
-      each val,index in movies.movies
+      a(href="/list") Visa alla
+      a(href="/list?genre=drama") Drama
+      a(href="/list?genre=war") War
+      a(href="/list?genre=action") Action
+      a(href="/list?genre=comedy") Comedy
+      a(href="/list?genre=western") Western
+      h4= numMovies
+      //- Loops through array with all movies. Passes the id of every movie as a querystring in the a-tags - both for viewing movie and for deleting movie. 
+      each val,index in movies
          p
-            a(href="/movies?id=#{index}")= val.title
+            a(href="/movies?id=#{val.id}")= val.title
+            a(href="/delete?id=#{val.id}" class="delete") DELETE
          hr
