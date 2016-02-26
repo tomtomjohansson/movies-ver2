@@ -22,11 +22,15 @@ router.get('/', function(req, res, next) {
          }
       });
       var numberOfMovies = "";
-      if(genre){
-         numberOfMovies = "There are "+filtered.length+" movies in this genre."
+      // Show how many movies there are in list. If genre is undefined, show how many total.
+      if(genre && filtered.length < 2){
+         numberOfMovies = "There is "+filtered.length+" movie in this genre.";
+      }
+      else if(genre){
+         numberOfMovies = "There are "+filtered.length+" movies in this genre.";
       }
       else{
-         numberOfMovies = "There are "+filtered.length+" movies total."
+         numberOfMovies = "There are "+filtered.length+" movies total.";
       }
       res.render('list', {
          title: 'List movies',
