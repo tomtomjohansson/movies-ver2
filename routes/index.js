@@ -5,7 +5,7 @@ var fs = require('fs');
 // Renders title to index-page
 router.get('/', function(req, res, next) {
    res.render('index', {
-      title: 'Add movies'
+      title: 'Add movies',
    });
 });
 

@@ -6,7 +6,7 @@ var stream = require('./stream');
 
 router.get('/', function(req, res, next) {
    // Calls function in file stream.js. Passes function writeOnPage as a callback to collect data from database-file.
-   stream.getStream(writeOnPage);
+   stream.getStream(writeOnPage,res);
    // Function to render to jade-page. Passes a JSON-object as a parameter.
    function writeOnPage(data){
       // Picks out selected genre from query-string and assigns it to variable genre.
