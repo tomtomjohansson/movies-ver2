@@ -8,9 +8,10 @@ block content
       a(href="/list?genre=action") Action
       a(href="/list?genre=comedy") Comedy
       a(href="/list?genre=western") Western
-      h4= numMovies
+      //- h4= numMovies
       //- Loops through array with all movies. Passes the id of every movie as a querystring in the a-tags - both for viewing movie and for deleting movie. 
       each val,index in movies
+         p= numMovies
          p
             a(href="/movies?id=#{val.id}")= val.title
             a(href="/delete?id=#{val.id}" class="delete") DELETE
